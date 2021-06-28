@@ -1,0 +1,133 @@
+\documentclass[./main]{subfiles}
+
+\begin{document}
+
+
+\section{Day 1}
+In today's lecture, we will first review abelian duality in reprensetation theory, 
+namely representation theory of finite abelian groups, as equivalences of categories of different levels. Then we will briefly review 
+abelian duality in QFTs of different dimensions. 
+Then we will see how to interpret the equivalences of categories as equivalences of field theories and state the main theorem.
+Lastly, we will review the basics of topological field theories.
+
+
+\subsection{Motivation: Representation theory}
+Let us start right from the beginnign of representation theory:
+$\mb{C}$-linear representations of finite abelian groups. 
+
+Let $A$ be a finite abelian group, its Pontryagin dual group $\hat{A} \coloneqq Hom(A, \mbcx)$
+is the group of characters of $A$. Its elements are group homomorphisms:
+\begin{equation}
+\chi : A \rightarrow \mbcx.
+\end{equation}
+
+If $X$ is a set, then we define $\mb{C}[X] \coloneqq Maps(X, \mb{C})$ to be the 
+vector space of functions on $X$. Note that it is an algebra under point-wise multiplication:
+\begin{equation}
+    1_g \cdot 1_h \coloneqq \delta_{g,h} 1_g.
+\end{equation}
+% We will denote this multplication as $\cdot$.
+Moreoever, if $G$ is a group, then $\mb{C[G]}$ has an additional multiplication structure:
+\begin{equation}
+    1_g  \ast 1_h \coloneqq 1_{gh}.
+\end{equation}
+$\mb{C[G]}$ together with $\ast$ product is called the group algebra of $G$.
+Here's the first instance of abelian duality:
+\begin{theorem}
+There is a canoncial equivalence 
+\begin{equation}
+    \mb{C}[A] \isorightarrow \mb{C}[\hat{A}]
+\end{equation}
+that exchanges the point-wise multiplication $\cdot$ with group multiplication $\ast$.
+\end{theorem}
+On basis, this isomorphism takes 
+\begin{equation}
+    1_a \mapsto  \frac{1}{|A|}\sum_{\alpha} \alpha(a) 1_\alpha,
+\end{equation}
+where $\alpha$ sums over all elements of $\hat{A}$ (characters) and $\alpha(a) \in  \mbcx$ is the
+evaluation of $\alpha$ at $a$. 
+
+To get to our next example of abelian duality, let's take one step further and 
+recall the classificiation theory for finite abelian groups:
+
+Over $\mb{C}$, every finite dimensional A representation decomposes into direct sums 
+irreducible ones. Since $A$ is abelian, the irreducible representations are all one-dimensional,
+in fact, the equivalence classes of irreducible representations are precisely labeled by $\hat{A}$:
+given a one dimension representation $V$ of $A$, after an identification $V \isorightarrow \mb{C}$,
+we get a group homomorphism $A \rightarrow Aut(\mb{C}) = \mbcx$, aka a character.
+For a general representation $V$, we see that they decomposes vector spaces over $\hat{A}$.
+
+
+This can be expressed much more clearly as equivalence of categories:
+\begin{theorem}
+    Let $Rep_A$ be the category of finite dimensional $\mb{C}$-linear representations of $A$, 
+    and $Vect_{\hat{A}}$ the category of finite dimensional vector bundles over $\hat{A}$ (a topological spaces with discrete topology).
+    Then we have an equivalence of categories:
+    \begin{equation}
+        Rep_A \cong Vect_{\hat{A}}.
+    \end{equation}
+\end{theorem}
+
+Since representations of $A$ are the same thing as vector bundles over $BA$, we can write the 
+equivalence above as 
+\begin{equation}
+    Vect_{BA} \cong Vect_{\hat{A}}.
+\end{equation}
+\begin{remark}
+Note that there is a symmetry between the $A$ side and the $\hat{A}$ side, unlike the 
+previous equivalence. Also this is a statement of 1-categories and the iso of 
+vector spaces is a statement of 0-categories
+\end{remark}
+
+Our last example is less well-known as the previous two but it is even more fundamental.
+It is an equivalence of 2-categories. 
+
+First we have to review group action on categories:
+\begin{definition}
+    Let $A$ be a finite abelian group and $C$ a category. An $A$ action on $C$ an assignment
+    $F_a : C \rightarrow C$ for every $a \in A$, with associtivity data and higher coherences.
+    Given a group $C$ with an $A$ action, then an equivariant object in $C$ is an object $c \in C$
+    with the data $\phi_a: c \isorightarrow F_a(c)$ for every $a \in A$. 
+    We denote $2Vect_{BA}$ the 2-category of 
+    (small) $\mb{C}$-linear categories with a $A$ action.
+\end{definition}
+
+We have the following theorem:
+\begin{theorem}[Freed-Teleman]
+There is a canonical equivalence of 2-categories:
+    \begin{equation}
+        2Vect_{BA} \cong 2Vect_{B\hat{A}}.
+    \end{equation}
+It takes a category $C$ with an $A$ action to $C^A$ the category of $A$ equivariant object in $C$ (with a $\hat{A}$ action).
+\end{theorem}
+
+\begin{example}
+Let $C = Vect$ with the trivial $A$ action, then $C^A \cong Rep_A$ and the $\hat{A}$ action is 
+\begin{equation}
+    F_a: V \mapsto V \otimes V_a.
+\end{equation}
+Let $C = Vect_A$ with the canonical $A$ action, then $C^A \cong Vect$ with the trivial $\hat{A}$ action.
+In fact, these two example plus the theorem recovers $Vect_{BA} \cong Vect_{\hat{A}}$, even as categories with $\hat{A}$.
+\end{example}
+
+To summarize, we have three example of abelian duality: 
+\begin{align}
+    \mb{C}[A] &\cong \mb{C}[\hat{A}] \\
+    Vect_{BA} &\cong Vect_{\hat{A}} \\ 
+    2Vect_{BA} &\cong 2Vect_{B\hat{A}}.
+\end{align}
+There are two things to note:
+\begin{itemize}
+    \item Each one is one category higher than the previous one. In fact, each one recovers the previous one as hochschild homology.
+    \item Going from one to the next, we have to add $B$ to one of the sides.
+\end{itemize}
+
+Let's try to understand this in a more field theoretic context. 
+
+Topological abelian duality is a generalization of this for all category higher and more general object.
+But before we get to that, we will first look at abelian duality in QFT.
+
+\subsection{Abelian duailty in QFT}
+For now, see chapter 1 of \href{https://leon2k2k2k.github.io/Research/senior_thesis.pdf}{here}.
+
+\end{document}

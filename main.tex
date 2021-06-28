@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%Packages%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}%%<- This introduces a bunch of symbols.
+\usepackage{comment}%<- this allows you to do multi-line of comments
+\usepackage{indentfirst}%<- This requires the first paragraph to be indented.
+\usepackage{amsthm}%<- Introduces unnumbered theorem environment for remark, comments, etc.
+\usepackage{amscd} %% commutative diagrams
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amsmath}%<- gives you flexibility in math display mode
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows}
+\usepackage{tikz-cd}%% for commutative diagrams.
+\usepackage{mathtools}
+\usepackage{mathalfa}
+\usepackage[colorinlistoftodos]{todonotes}  %%<- this creates to-do notes.
+\usepackage{subfiles} %% Give ability to use subfiles.
+\usepackage{upgreek} %% gives \uptau
+\usepackage{mathtools} %% gives \xrightarrow 
+\usepackage{adjustbox}
+\usepackage{hyperref} %% make references clickable
+\usepackage{cleveref}
+%\usepackage{autonum} %%makes equations auto-numbered.
+\usepackage[mathscr]{eucal}
+% \usepackage{biblatex}
+% \addbibresource{bib.bib}
+\usepackage{xr} 
+\usepackage{graphicx} %package to manage images
+\usepackage{mathtools}
+
+\graphicspath{ {./images/} }
+
+
+
+%%%%%%%%%equation counting%%%%%%%%%%%%%
+
+\numberwithin{equation}{subsection}%Numbering of equation restarts on each section.
+
+%%%%%%%%%%%Environments%%%%%%%%%%%%%%
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem*{theorem-non}{Theorem} %% no numbering
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{corollary}[equation]{Corollary}
+%%%%%%%%%%%%%%%%%
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+\theoremstyle{remark}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{example}[equation]{Example}
+\newtheorem{construction}[equation]{Construction}
+
+
+%%%%%%%%%%Styling%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%Custom Commands%%%%%%%%%%%%
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\hcal}[1]{\hat{\mathcal{#1}}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\dhcal}[1]{\Sigma^{d-1}{\hcal{#1}}}
+\newcommand{\ICx}{I\mathbb{C}^\times}
+\newcommand{\Vect}{Vect_{\mathbb{C}}}
+\newcommand{\dd}{\partial}
+\newcommand{\Poincare}{Poincar\'e\ }
+\newcommand{\mbcx}{\mb{C}^\times}
+\newcommand{\cx}{\mbcx}
+\newcommand{\icx}{I\mbcx}
+\newcommand{\sus}{\Sigma^{\infty}_+}
+\newcommand{\isorightarrow}{\xrightarrow{\sim}}
+\newcommand{\dcalx}{\dhcal{X}} % the dual spectrum in d dimension.
+\newcommand{\dx}{\mb{D}\mcal{X}} % another notation for the dual spectrum in d dimension.
+\newcommand{\mbD}{\mb{D}}
+\newcommand{\suss}{\Sigma^{\infty}} %infinite loop space of a based space$.
+\newcommand{\oss}{\Omega^{\infty}} % infinite deloop (underlying space).
+\newcommand{\BordR}{Bord_d ^{\mcal{R}}}
+\newcommand{\WE}{\widetilde{E}}
+\newcommand{\wx}{\widetilde{\mcal{X}}}
+\newcommand{\wmcal}[1]{\widetilde{\mcal{#1}}}
+\newcommand{\vbf}[1]{\vec{\mathbf{#1}}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\E}{\mb{E}}
+\newcommand{\Maps}{\underline{Maps}}
+\newcommand{\mcx}{\mcal{X}} % shorthand for $\mcal{X}$.
+\newcommand{\mcr} {\mcal{R}} % shorthand for $\mcal{R}$.
+\newcommand{\bordR}{Bord^{\mcr}_d} % shorthand for the $\mcal{R}$-oriented bordism category in $d$ dimension.
+
+%%%%%%%%%%%%%%%%Titles%%%%%%%%%%%%%%%
+\title{Topological Abelian Duality}
+\author{Leon Liu}
+
+
+
+
+\begin{document}
+\maketitle
+
+Abelian duality is a major theme in both mathematics and physics,
+namely representation theory and quantum field theories. 
+In this minicourse, we will explore a homotopic version of abelian duality through the lense of 
+topological field thories. Moreover, we will see how field theories behaves like 
+sheaves and generalize the abelian duality theory to more general (homotopic) situations.
+
+\subfile{lecture1}
+
+\end{document}
