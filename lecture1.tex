@@ -118,8 +118,8 @@ To summarize, we have three example of abelian duality:
 \end{align}
 There are two things to note:
 \begin{itemize}
-    \item Each one is one category higher than the previous one. In fact, each one recovers the previous one as hochschild homology.
-    \item Going from one to the next, we have to add $B$ to one of the sides.
+    \item There is an increase in category number. 
+    \item To go up in category number, we have to add $B$ to one of the sides.
 \end{itemize}
 
 Let's try to understand this in a more field theoretic context. 
@@ -128,6 +128,69 @@ Topological abelian duality is a generalization of this for all category higher 
 But before we get to that, we will first look at abelian duality in QFT.
 
 \subsection{Abelian duailty in QFT}
-For now, see chapter 1 of \href{https://leon2k2k2k.github.io/Research/senior_thesis.pdf}{here}.
+Read chapter 1 of  \href{https://leon2k2k2k.github.io/Research/senior_thesis.pdf}{here} for not familiar with abelian duality in QFTs.
+The main thing to get out is that there are equivalences of (free, higher)-abelian gauge theories in different dimensions:
+\begin{center}
+    \begin{tabular}{c c c}
+        Dimension & theory & dual theory \\ 
+        2 & Sigma model to $S^1$ & Sigma model to $S^1$ \\
+        3 & $U(1)$ gauge theory & Sigma model to $S^1$ \\ 
+        4 & $U(1)$ gauge theory & $U(1)$ gauge theory \\
+    \end{tabular}
+\end{center}
+If we imagine $U(1)$ gauge theories are sigma models to $BU(1)$, then
+notice it also exhibits the two behaviors that we observed above:
+\begin{itemize}
+    \item There is an increase in dimensions.
+    \item To go one dimension higher, we need to put a $B$ on one side.
+\end{itemize}
+Moreoever, we know that this pattern continues on for arbitrary dimensions  and for general higher gauge theories:
+\begin{theorem} \label{QFT theorem}
+    In $d$ dimension, there is an equivalence of QFTs between the $n$-gerbe $U(1)$ theory
+    and the $n-d-2$-gerbe $U(1)$ theory, with the coupling constant inverse proportional to each other.
+\end{theorem}
+The goal of this minicourse is to explore how we can take this QFT phenonemon to understand the abelian duality
+we see in representation theory.
+
+\subsection{Topological abelian duality}
+Let's go back to the representation theory equivalences of categories. 
+Through the study of (extended) topological field theories, we know that higher categories are directly related to 
+topological field theories: $n$-categories are the values of $n+1$-dimensional topological field theories
+at a point. In fact, equivalences of TFTs gives equivalences of $n$-categories. Thus if we can find topological versions
+of \ref{QFT theorem}, then we will recover our rep. theory equivalences, in much greater generality.
+
+This is precisely the main theorem:
+
+\begin{theorem}
+    Given a finite abelian group $A$ and an natural number $n$. In every dimension $d$,
+    there is a $d$-dimensional topological field theory $Z_{B^nA}$ that counts $n$-gauge bundles on $A$.
+    There is an equivalence of $d$-dimensional TFTs:
+    \begin{equation}
+        Z_{B^nA} \cong Z_{B^{d-n-1}\hat{A}} \otimes \mathcal{F},
+    \end{equation}
+    where $\mathcal{F}$ is an invertible field theory.
+\end{theorem}
+
+\begin{remark}
+    This theorem can be extended to $\pi$-finite spectra, where the duality is called Brown-Comenetz duality.
+    However, the proof we are using is designed to generalize to extended theories.
+\end{remark}
+
+\begin{remark}
+    We will work in the unextended context, the search for the extended theories is still an open 
+    research question. 
+\end{remark}
+
+The goal of this mini-course is to sketch a proof of the main theorem, but it's really not.
+In order to prove this theorem in a conceptual way, we need to take a step back and 
+understand the functoriality of field theories. Along the way,
+we will encouter classical field theories, finite path integrals, correspondences, and sheaves theory.
+In the end, we will see that this abstract, categorical approach will allow us to generalize
+this to much much more general settings. That is the real main goal of this mini-course.
+
+Tomorrow, we will start this journey by reviewing through the basics of topological field theories
+and introduce the theories $Z_{B^nA}$ in the main theorem.
+
+
 
 \end{document}
